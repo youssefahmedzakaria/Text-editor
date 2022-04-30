@@ -65,16 +65,54 @@ void mergeFile() {
 
 
 void cntWords() {
+    int wordsCnt = 1;
+    char pointer;
+    ifstream dataFile;
+    dataFile.open(fileName);
+    dataFile.seekg(0, ios::beg);
+    while (dataFile) {
 
+        dataFile.get(pointer);
+        if (pointer == ' ' || pointer == '\n')
+            wordsCnt += 1;
+    }
+    dataFile.close();
+    cout << "Number of words in the given file =  " << wordsCnt << "\n";
 }
 
 void cntChar() {
-
+    int charCnt = 0;
+    char pointer;
+    ifstream dataFile;
+    dataFile.open(fileName);
+    dataFile.seekg(0, ios::beg);
+    while (dataFile.get(pointer)) {
+        if (pointer == EOF) {
+            break;
+        }
+        charCnt += 1;
+    }
+    dataFile.close();
+    cout << "Number of characters in the given file =  " << charCnt << "\n";
 }
 
 void cntLines() {
+    int linesCnt = 1;
+    char pointer;
+    ifstream dataFile;
+    dataFile.open(fileName);
+    dataFile.seekg(0, ios::beg);
+    while (dataFile) {
 
+        dataFile.get(pointer);
+        if (pointer == '\n')
+            linesCnt += 1;
+    }
+    dataFile.close();
+    cout << "Number of lines in the given file =  " << linesCnt << "\n";
 }
+
+
 
 void searchWord() {
 
