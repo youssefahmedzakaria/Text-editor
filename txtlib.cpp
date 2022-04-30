@@ -25,7 +25,7 @@ void displayContent() {
 
 
 void emptyFile() {
-  
+
 }
 
 void encryptFile() {
@@ -115,7 +115,16 @@ void cntLines() {
 
 
 void searchWord() {
-
+    ifstream dataFile;
+    dataFile.open(fileName);
+    string text; string word;
+    dataFile >> text;
+    cout <<"Enter the word you need to check it's existence. \n>>";
+    cin >>word;
+    if (text.find(word) != string::npos) {
+        cout << "Word was found in the file .\n";
+    }
+    else cout <<"Word was not found in the file .\n";
 }
 
 void cntExistence() {
