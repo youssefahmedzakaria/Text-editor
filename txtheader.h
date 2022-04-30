@@ -4,8 +4,6 @@
 
 char fileName[81] ;
 char secondName[81];
-string stateDecide;
-bool progRun = true;
 
 using namespace std;
 
