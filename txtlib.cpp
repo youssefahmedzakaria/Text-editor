@@ -132,10 +132,43 @@ void cntExistence() {
 }
 
 void upperCase() {
+    vector<char> container; char ch;
+    fstream dataFile;
 
+    dataFile.open(fileName,ios::in);
+    while(!dataFile.eof() && !dataFile.fail()){
+        dataFile.get(ch);
+        container.push_back(toupper(ch));
+    }
+    dataFile.close();
+
+    dataFile.open(fileName,ios::out);
+    for(int i=0 ; i<container.size()-1 ; ++i){
+        dataFile.put(container[i]);
+    }
+    dataFile.close();
+
+    cout<<"All characters are now in upper case. \n";
 }
 
 void lowerCase() {
+    vector<char> container; char ch;
+    fstream dataFile;
+
+    dataFile.open(fileName,ios::in);
+    while(!dataFile.eof() && !dataFile.fail()){
+        dataFile.get(ch);
+        container.push_back(tolower(ch));
+    }
+    dataFile.close();
+
+    dataFile.open(fileName,ios::out);
+    for(int i=0 ; i<container.size()-1 ; ++i){
+        dataFile.put(container[i]);
+    }
+    dataFile.close();
+
+    cout<<"All characters are now in lower case. \n";
 
 }
 
