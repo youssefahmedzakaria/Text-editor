@@ -180,9 +180,57 @@ void lowerCase() {
 }
 
 void firstCaps() {
+    string str;
+    ifstream inFile;
+    ofstream outFile;
+    stringstream str_stream;
+    char filename[30];
+    int i = 0, temp = 0;
 
+    inFile.open(fileName);
+    str_stream << inFile.rdbuf();
+    inFile.close();
+    str = str_stream.str();
+    while (str[i]) {
+        if (temp == 0) {
+            str[i] = toupper(str[i]);
+            temp = 1;
+        } else if (isspace(str[i]))
+            temp = 0;
+        i++;
+    }
+    outFile.open(filename);
+    outFile << str;
+    cout << "File is now in First Caps. \n";
 }
 
+void save(){
+    char choice;
+    cout << "Progress saved successfully, Enter (0) to save in same file or any key to save to a new file. \n>> ";
+    cin>>choice;
+
+    if (choice == '0') return;
+    else {
+        string text;
+        ofstream newFile; ifstream dataFile;
+        dataFile.open(fileName);
+        newFile.open("New Saved File.txt");
+        newFile.close();
+
+        newFile.open("New Saved File.txt");
+
+        if (newFile && dataFile) {
+            while(getline(dataFile,text)){
+                newFile << text << "\n";
+            }
+        }
+
+        dataFile.close();
+        newFile.close();
+        cout<<"File saved successfully !\n";
+
+    }
+}
 
 
 
