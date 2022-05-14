@@ -1,11 +1,17 @@
 #include <bits/stdc++.h>
 #include <fstream>
 #include <string>
-
-char fileName[81] ;
-char secondName[81];
+#include <algorithm>
+#include <cctype>
+#include <vector>
 
 using namespace std;
+
+char fileName[81] ,secondName[81] ,line[100];
+vector<string> text;
+
+
+
 
 // Get name of the file from the user.
 void getName();
