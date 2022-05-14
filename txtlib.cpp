@@ -16,15 +16,37 @@ void getName(){
 }
 
 void addTxt() {
+    ofstream dataFile;
+    dataFile.open(fileName,ios::app);
 
+    if (! dataFile.eof()) {
+        cout <<"Enter The Text You Need To Add At The End Of The File \n"
+               ">>" ;
+        string txt;
+        cin >> txt;
+        dataFile << "\n" << txt;
+    }
+
+    dataFile.close();
 }
 
 void displayContent() {
+    ifstream dataFile;
+    dataFile.open(fileName);
 
+    if (! dataFile.eof()) {
+        char content[2000000];
+        dataFile.getline( content, 2000000, '\0');
+        cout <<"Here are the contents found in the file \n" <<content <<endl;
+    }
+    dataFile.close();
 }
 
 
 void emptyFile() {
+    ofstream dataFile(fileName);
+    cout <<"File is now cleared, All contents are erased . \n";
+    dataFile.close();
 
 }
 
