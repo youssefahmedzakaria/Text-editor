@@ -115,16 +115,23 @@ void cntLines() {
 
 
 void searchWord() {
-    ifstream dataFile;
-    dataFile.open(fileName);
-    string text; string word;
-    dataFile >> text;
-    cout <<"Enter the word you need to check it's existence. \n>>";
-    cin >>word;
-    if (text.find(word) != string::npos) {
-        cout << "Word was found in the file .\n";
+    string search; string temp;
+    int cnt = 0;
+    ifstream dataFile(fileName);
+    cout << " Enter the word you want to want to check it's existence.\n>> ";
+    cin >> search;
+
+    while (dataFile >> temp) {
+        if (temp == search) {
+            ++cnt;
+        }
     }
-    else cout <<"Word was not found in the file .\n";
+    if (cnt > 0) {
+        cout << "Word is found in the file.";
+    }
+    else {
+        cout << "The word doesn't exist.";
+    }
 }
 
 void cntExistence() {
