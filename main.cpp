@@ -1,7 +1,7 @@
 // FCAI – Programming 1 – 2022 - Assignment 4
 // Program Name: Text Editor Program
 // Program Description: Text Editor Program
-// Last Modification Date: 04/30/2022
+// Last Modification Date: 14/05/2022
 // Author1 and ID and Group: Ziad Nasser Shaaban, 20210153, Group A S3 S4
 // Author2 and ID and Group: Saif El-Din Hazem, 20210165, Group A S3 S4
 // Author3 and ID and Group: Youssef Ahmed Zakaria, 20210458, Group A S3 S4
@@ -12,8 +12,8 @@
 
 
 int main() {
-    int menuChoice;
     string stateDecide;
+    int menuChoice;
     bool progRun = true;
 
     cout << "Ahlan ya user ya habibi, Welcome to your favorite Text Editor . \n";
@@ -40,7 +40,7 @@ int main() {
                 "14. Turn file content to 1st caps (1st character of each word is capital) \n"
                 "15. Save \n"
                 "16. Exit \n"
-                "\n>>  ";
+                "\n>>";
 
         cin >> menuChoice;
         switch (menuChoice) {
@@ -89,6 +89,7 @@ int main() {
             case 15 :
                 save();
                 break;
+
             case 16:
                 progRun = false;
                 break ;
