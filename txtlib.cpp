@@ -135,7 +135,23 @@ void searchWord() {
 }
 
 void cntExistence() {
-
+    cout << " Enter the word you want to count the number of times it  exists in the file.\n>> ";
+    string search;
+    int cnt = 0;
+    ifstream dataFile(fileName);
+    cin >> search;
+    string temp;
+    while (dataFile >> temp) {
+        if (temp == search) {
+            ++cnt;
+        }
+    }
+    if (cnt > 0) {
+        cout << "It is repeated " << cnt << "times.";
+    }
+    else {
+        cout << "The word doesn't exist.";
+    }
 }
 
 void upperCase() {
