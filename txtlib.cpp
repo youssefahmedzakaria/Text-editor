@@ -50,12 +50,51 @@ void emptyFile() {
 
 }
 
-void encryptFile() {
 
+void encryptFile() {
+    vector<char> container; char ch;
+    char enc_ch;
+    fstream dataFile;
+
+    dataFile.open(fileName,ios::in);
+    while(!dataFile.eof() && !dataFile.fail()){
+        dataFile.get(ch);
+        if(ch =='\n')
+            enc_ch='\n';
+        else
+            enc_ch = ch +1;
+        container.push_back(enc_ch);
+    }
+    dataFile.close();
+
+    dataFile.open(fileName,ios::out);
+    for(int i=0 ; i<container.size()-1 ; ++i){
+        dataFile.put(container[i]);
+    }
+    dataFile.close();
 }
 
 void decryptFile() {
+    vector<char> container; char ch;
+    char dec_ch;
+    fstream dataFile;
 
+    dataFile.open(fileName,ios::in);
+    while(!dataFile.eof() && !dataFile.fail()){
+        dataFile.get(ch);
+        if(ch =='\n')
+            dec_ch='\n';
+        else
+            dec_ch = ch -1;
+        container.push_back(dec_ch);
+    }
+    dataFile.close();
+
+    dataFile.open(fileName,ios::out);
+    for(int i=0 ; i<container.size()-1 ; ++i){
+        dataFile.put(container[i]);
+    }
+    dataFile.close();
 }
 
 void mergeFile() {
